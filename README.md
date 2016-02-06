@@ -7,21 +7,21 @@
 [ci]:      https://travis-ci.org/dan-gamble/postcss-fontawesome
 
 ```css
-.foo {
-    /* Input example */
+.foo::before {
+    font-awesome: camera;
 }
 ```
 
 ```css
 .foo {
-  /* Output example */
+  content: '\f030';
 }
 ```
 
 ## Usage
 
 ```js
-postcss([ require('postcss-fontawesome') ])
+postcss([ require('postcss-font-awesome') ])
 ```
 
 See [PostCSS] docs for examples for your environment.
