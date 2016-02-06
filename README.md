@@ -1,5 +1,9 @@
 # PostCSS Fontawesome [![Build Status][ci-img]][ci]
 
+<img align="right" width="135" height="95"
+     title="Philosopher’s stone, logo of PostCSS"
+     src="http://postcss.github.io/postcss/logo-leftp.svg">
+
 [PostCSS] plugin to pull in a Font Awesome's icon unicode using `content`.
 
 [PostCSS]: https://github.com/postcss/postcss
