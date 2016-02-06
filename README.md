@@ -1,4 +1,4 @@
-# PostCSS Fontawesome [![Build Status][ci-img]][ci]
+# PostCSS Font Awesome [![Build Status][ci-img]][ci]
 
 <img align="right" width="135" height="95"
      title="Philosopher’s stone, logo of PostCSS"
