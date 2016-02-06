@@ -1,0 +1,33 @@
+{
+  "name": "postcss-font-awesome",
+  "version": "0.0.0",
+  "description": "PostCSS plugin to pull in a Font Awesome's icon unicode",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "font awesome"
+  ],
+  "author": "Dan Gamble <dangamble89@gmail.com>",
+  "license": "MIT",
+  "repository": "dan-gamble/postcss-font-awesome",
+  "bugs": {
+    "url": "https://github.com/dan-gamble/postcss-font-awesome/issues"
+  },
+  "homepage": "https://github.com/dan-gamble/postcss-font-awesome",
+  "dependencies": {
+    "font-awesome": "^4.5.0",
+    "postcss": "^5.0.14"
+  },
+  "devDependencies": {
+    "ava": "^0.11.0",
+    "eslint": "^1.10.3",
+    "eslint-config-postcss": "^1.0.0"
+  },
+  "scripts": {
+    "test": "ava && eslint *.js"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-postcss/es5"
+  }
+}
