@@ -10,7 +10,7 @@ module.exports = postcss.plugin('postcss-font-awesome', function (opts) {
 
             // Get our unicode value if it exists
             if (icons[decl.value]) {
-                iconValue = `'\f${icons[decl.value]}'`;
+                iconValue = `'\\f${icons[decl.value]}'`;
             }
 
             if (opts.replacement) {
