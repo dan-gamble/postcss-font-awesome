@@ -12,18 +12,18 @@ function run(t, input, output, opts = { }) {
 }
 
 test('converts icon name into unicode', t => {
-    return run(t, 'a{ font-awesome: camera }', 'a{ font-family: FontAwesome; content: \'\f030\' }');
+    return run(t, 'a{ font-awesome: camera }', 'a{ font-family: FontAwesome; content: \'\\f030\' }');
 });
 
 test('converts icon name into unicode with comma seperated selectors', t => {
-    return run(t, 'a, b{ font-awesome: camera }', 'a, b{ font-family: FontAwesome; content: \'\f030\' }');
+    return run(t, 'a, b{ font-awesome: camera }', 'a, b{ font-family: FontAwesome; content: \'\\f030\' }');
 });
 
 test('options', t => {
     return run(
         t,
         'a{ font-awesome: camera }',
-        'a{ -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased; text-rendering: auto; font-size: inherit; font: normal normal normal FontAwesome; display: inline-block }\na::before{ content: \'\f030\' }', { // eslint-disable-line max-len
+        'a{ -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased; text-rendering: auto; font-size: inherit; font: normal normal normal FontAwesome; display: inline-block }\na::before{ content: \'\\f030\' }', { // eslint-disable-line max-len
             replacement: true
         }
     );
@@ -33,7 +33,7 @@ test('options with comma seperated selectors', t => {
     return run(
         t,
         'a, b{ font-awesome: camera }',
-        'a, b{ -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased; text-rendering: auto; font-size: inherit; font: normal normal normal FontAwesome; display: inline-block }\na::before, b::before{ content: \'\f030\' }', { // eslint-disable-line max-len
+        'a, b{ -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased; text-rendering: auto; font-size: inherit; font: normal normal normal FontAwesome; display: inline-block }\na::before, b::before{ content: \'\\f030\' }', { // eslint-disable-line max-len
             replacement: true
         }
     );
