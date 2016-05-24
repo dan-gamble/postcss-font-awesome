@@ -26,7 +26,7 @@
   },
   "scripts": {
     "test": "ava && eslint *.js",
-    "postinstall": "node ./generateIconConfig.js"
+    "install": "node ./generateIconConfig.js"
   },
   "eslintConfig": {
     "extends": "eslint-config-postcss/es5",
