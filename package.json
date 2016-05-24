@@ -20,12 +20,13 @@
     "postcss": "^5.0.14"
   },
   "devDependencies": {
-    "ava": "^0.11.0",
-    "eslint": "^1.10.3",
-    "eslint-config-postcss": "^1.0.0"
+    "ava": "^0.14.0",
+    "eslint": "^2.10.2",
+    "eslint-config-postcss": "^2.0.2"
   },
   "scripts": {
-    "test": "ava && eslint *.js"
+    "test": "ava && eslint *.js",
+    "postinstall": "node ./generateIconConfig.js"
   },
   "eslintConfig": {
     "extends": "eslint-config-postcss/es5",
