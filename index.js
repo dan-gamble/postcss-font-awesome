@@ -10,7 +10,7 @@ module.exports = postcss.plugin('postcss-font-awesome', function (opts) {
 
             // Test to see if the content's value has an `fa-` in it
             if (/fa-/i.test(decl.value)) {
-                var theIconFa = /fa-([a-z]*)/i.exec(decl.value);
+                var theIconFa = /fa-([a-z\-]*)/i.exec(decl.value);
 
                 // Test to see if the icon actually exists
                 if (theIconFa[1]) {
@@ -22,7 +22,7 @@ module.exports = postcss.plugin('postcss-font-awesome', function (opts) {
                     });
                 }
 
-                var newValue = decl.value.replace(/(fa-[a-z]*)/i, theIcon);
+                var newValue = decl.value.replace(/(fa-[a-z\-]*)/i, theIcon);
 
                 decl.value = newValue;
             }

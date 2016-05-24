@@ -64,3 +64,9 @@ test('extending the content, replacing inline fa- tags middle', t => {
     );
 });
 
+test('extending the content, replacing inline fa- tags with a hyphen', t => {
+    return run(t,
+        'a::before{ content: \'Test fa-level-down Test\'}',
+        'a::before{ font-family: FontAwesome; content: \'Test \\f149 Test\'}'
+    );
+});
