@@ -1,5 +1,6 @@
 var path = require('path');
 var fs = require('fs');
+var req = require('request');
 
 var config = {
     src: path.resolve(
@@ -8,8 +9,8 @@ var config = {
     dest: './icons.json'
 };
 
-fs.readFile(config.src, 'utf8', function (err, data) {
-    if (err) console.log(err);
+req.get('https://raw.githubusercontent.com/FortAwesome/Font-Awesome/master/scss/_variables.scss', function (e, d, data) {
+    if (e) console.log(e);
 
     var lines = data.split('\n').filter(n => {
         return n !== undefined && n !== '' && n.startsWith('$fa-var-');
@@ -19,7 +20,7 @@ fs.readFile(config.src, 'utf8', function (err, data) {
     for (var line of lines) {
         var icon = line.substring(0, line.indexOf(':')).replace('$fa-var-', '');
         var code = line.substring(line.indexOf('\\f'), line.indexOf('";'))
-                       .replace('\\f', '');
+            .replace('\\f', '');
 
         icons[icon] = code;
     }

@@ -16,21 +16,26 @@
   },
   "homepage": "https://github.com/dan-gamble/postcss-font-awesome",
   "dependencies": {
-    "font-awesome": "^4.5.0",
-    "postcss": "^5.0.14"
+    "postcss": "^5.0.14",
+    "request": "^2.72.0"
   },
   "devDependencies": {
-    "ava": "^0.11.0",
-    "eslint": "^1.10.3",
-    "eslint-config-postcss": "^1.0.0"
+    "ava": "^0.14.0",
+    "eslint": "^2.10.2",
+    "eslint-config-postcss": "^2.0.2"
   },
   "scripts": {
-    "test": "ava && eslint *.js"
+    "test": "ava && eslint *.js",
+    "install": "node ./generateIconConfig.js"
   },
   "eslintConfig": {
     "extends": "eslint-config-postcss/es5",
     "rules": {
-      "max-len": [1, 80, 4]
+      "max-len": [
+        1,
+        80,
+        4
+      ]
     }
   }
 }
