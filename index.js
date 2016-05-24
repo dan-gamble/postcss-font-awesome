@@ -5,6 +5,29 @@ module.exports = postcss.plugin('postcss-font-awesome', function (opts) {
     opts = opts || {};
 
     return function (css) {
+        css.walkDecls('content', function (decl) {
+            var theIcon = '';
+
+            // Test to see if the content's value has an `fa-` in it
+            if (/fa-/i.test(decl.value)) {
+                var theIconFa = /fa-([a-z]*)/i.exec(decl.value);
+
+                // Test to see if the icon actually exists
+                if (theIconFa[1]) {
+                    theIcon = `\\f${icons[theIconFa[1]]}`;
+
+                    decl.cloneBefore({
+                        prop: 'font-family',
+                        value: 'FontAwesome'
+                    });
+                }
+
+                var newValue = decl.value.replace(/(fa-[a-z]*)/i, theIcon);
+
+                decl.value = newValue;
+            }
+        });
+
         css.walkDecls('font-awesome', function (decl) {
             var iconValue = decl.value;
 
@@ -14,7 +37,7 @@ module.exports = postcss.plugin('postcss-font-awesome', function (opts) {
             }
 
             if (opts.replacement) {
-                // Add core properties that are normally on the -fa class
+                // Add core properties that are normally on the fa- class
                 // https://github.com/FortAwesome/Font-Awesome/blob/master/scss/_core.scss#L5-L10
                 decl.cloneAfter({ prop: 'display', value: 'inline-block' });
                 decl.cloneAfter({

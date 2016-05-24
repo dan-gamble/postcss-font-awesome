@@ -3,9 +3,9 @@ import test    from 'ava';
 
 import plugin from './';
 
-function run(t, input, output, opts = { }) {
-    return postcss([ plugin(opts) ]).process(input)
-        .then( result => {
+function run(t, input, output, opts = {}) {
+    return postcss([plugin(opts)]).process(input)
+        .then(result => {
             t.same(result.css, output);
             t.same(result.warnings().length, 0);
         });
@@ -40,6 +40,27 @@ test('options with comma seperated selectors', t => {
 });
 
 test('if icon name doesn\'t exist just use the input value', t => {
-    return run(t, 'a{ font-awesome: doesnt-exist }',
-                  'a{ content: doesnt-exist }');
+    return run(t, 'a{ font-awesome: doesnt-exist }', 'a{ content: doesnt-exist }');
 });
+
+test('extending the content, replacing inline fa- tags after', t => {
+    return run(t,
+        'a::before{ content: \'Test fa-camera\'}',
+        'a::before{ font-family: FontAwesome; content: \'Test \\f030\'}'
+    );
+});
+
+test('extending the content, replacing inline fa- tags before', t => {
+    return run(t,
+        'a::before{ content: \'fa-camera Test\'}',
+        'a::before{ font-family: FontAwesome; content: \'\\f030 Test\'}'
+    );
+});
+
+test('extending the content, replacing inline fa- tags middle', t => {
+    return run(t,
+        'a::before{ content: \'Test fa-camera Test\'}',
+        'a::before{ font-family: FontAwesome; content: \'Test \\f030 Test\'}'
+    );
+});
+
