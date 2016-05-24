@@ -16,8 +16,8 @@
   },
   "homepage": "https://github.com/dan-gamble/postcss-font-awesome",
   "dependencies": {
-    "font-awesome": "^4.5.0",
-    "postcss": "^5.0.14"
+    "postcss": "^5.0.14",
+    "request": "^2.72.0"
   },
   "devDependencies": {
     "ava": "^0.14.0",
@@ -31,7 +31,11 @@
   "eslintConfig": {
     "extends": "eslint-config-postcss/es5",
     "rules": {
-      "max-len": [1, 80, 4]
+      "max-len": [
+        1,
+        80,
+        4
+      ]
     }
   }
 }
