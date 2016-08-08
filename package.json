@@ -16,8 +16,7 @@
   },
   "homepage": "https://github.com/dan-gamble/postcss-font-awesome",
   "dependencies": {
-    "postcss": "^5.0.14",
-    "request": "^2.72.0"
+    "postcss": "^5.0.14"
   },
   "devDependencies": {
     "ava": "^0.14.0",
