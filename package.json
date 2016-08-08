@@ -1,6 +1,6 @@
 {
   "name": "postcss-font-awesome",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "PostCSS plugin to pull in a Font Awesome's icon unicode",
   "keywords": [
     "postcss",
