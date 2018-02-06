@@ -10,7 +10,7 @@ var config = {
 };
 
 var varsUrl = 'https://raw.githubusercontent.com/FortAwesome/Font-Awesome/';
-varsUrl += 'master/scss/_variables.scss';
+varsUrl += 'fa-4/scss/_variables.scss';
 
 https.request(varsUrl, function (res) {
     if (res.statusCode !== 200) {
